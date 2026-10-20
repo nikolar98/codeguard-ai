@@ -21,6 +21,8 @@ for file in project_path.rglob("*.py"):
     print("Code lines:", result["code_lines"])
     print("Functions:", len(structures["functions"]))
     print("Classes:", len(structures["classes"]))
+    print("Function names:", structures["functions"])
+    print("Class names:", structures["classes"])
     print("Long lines:", len(long_lines))
 
     for issue in long_lines:

@@ -1,3 +1,5 @@
+import ast
+
 
 def analyze_code(file_name):
     with open(file_name, "r", encoding="utf-8") as file:
@@ -25,26 +27,28 @@ def analyze_code(file_name):
     }
 
 
+
 def detect_structures(file_name):
     with open(file_name, "r", encoding="utf-8") as file:
-        lines = file.readlines()
+        code = file.read()
+
+    tree = ast.parse(code)
 
     functions = []
     classes = []
 
-    for line in lines:
-        stripped_line = line.strip()
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            functions.append(node.name)
 
-        if stripped_line.startswith("def "):
-            functions.append(stripped_line)
-
-        elif stripped_line.startswith("class "):
-            classes.append(stripped_line)
+        elif isinstance(node, ast.ClassDef):
+            classes.append(node.name)
 
     return {
         "functions": functions,
         "classes": classes
     }
+
 
 
 def detect_long_lines(file_name, max_length=79):
