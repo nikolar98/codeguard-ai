@@ -1,5 +1,5 @@
 from pathlib import Path
-from app.analyzers.file_analyzer import analyze_code, detect_structures
+from app.analyzers.file_analyzer import analyze_code, detect_structures, detect_long_lines
 
 project_path = Path(".")
 
@@ -12,6 +12,7 @@ for file in project_path.rglob("*.py"):
 
     result = analyze_code(file)
     structures = detect_structures(file)
+    long_lines = detect_long_lines(file)
 
     print("File:", result["file"])
     print("Total lines:", result["total_lines"])
@@ -20,6 +21,11 @@ for file in project_path.rglob("*.py"):
     print("Code lines:", result["code_lines"])
     print("Functions:", len(structures["functions"]))
     print("Classes:", len(structures["classes"]))
+    print("Long lines:", len(long_lines))
+
+    for issue in long_lines:
+        print(f"  Warning: Line {issue['line']} has {issue['length']} characters")
+
     print("---------------------------")
 
     total_files += 1
