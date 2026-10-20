@@ -23,3 +23,25 @@ def analyze_code(file_name):
         "comment_lines": comment_lines,
         "code_lines": code_lines
     }
+
+
+def detect_structures(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    functions = []
+    classes = []
+
+    for line in lines:
+        stripped_line = line.strip()
+
+        if stripped_line.startswith("def "):
+            functions.append(stripped_line)
+
+        elif stripped_line.startswith("class "):
+            classes.append(stripped_line)
+
+    return {
+        "functions": functions,
+        "classes": classes
+    }

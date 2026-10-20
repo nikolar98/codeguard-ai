@@ -1,6 +1,5 @@
-
 from pathlib import Path
-from app.analyzers.file_analyzer import analyze_code
+from app.analyzers.file_analyzer import analyze_code, detect_structures
 
 project_path = Path(".")
 
@@ -12,12 +11,15 @@ for file in project_path.rglob("*.py"):
         continue
 
     result = analyze_code(file)
+    structures = detect_structures(file)
 
     print("File:", result["file"])
     print("Total lines:", result["total_lines"])
     print("Empty lines:", result["empty_lines"])
     print("Comment lines:", result["comment_lines"])
     print("Code lines:", result["code_lines"])
+    print("Functions:", len(structures["functions"]))
+    print("Classes:", len(structures["classes"]))
     print("---------------------------")
 
     total_files += 1
