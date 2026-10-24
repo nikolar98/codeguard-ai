@@ -65,3 +65,24 @@ def detect_long_lines(file_name, max_length=79):
                 })
 
     return long_lines
+
+
+def detect_long_functions(file_name, max_lines=30):
+    with open(file_name, "r", encoding="utf-8") as file:
+        code = file.read()
+
+    tree = ast.parse(code)
+    long_functions = []
+
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            function_length = node.end_lineno - node.lineno + 1
+
+            if function_length > max_lines:
+                long_functions.append({
+                    "name": node.name,
+                    "start_line": node.lineno,
+                    "length": function_length
+                })
+
+    return long_functions
