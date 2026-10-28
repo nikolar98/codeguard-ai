@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70087bd7-ddaf-4d63-988e-4b63e61f1e80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test_syntax.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/analyzers/file_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/analyzers/file_analyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -23,6 +24,65 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.0987387892813505" />
+      <entry key="MS500" value="5.453989454472764" />
+      <entry key="S2" value="7.813721558163554" />
+      <entry key="S5" value="8.493534678421305" />
+      <entry key="S10" value="8.756974458284905" />
+      <entry key="S30" value="13.080427310568865" />
+      <entry key="S60" value="26.27630631082642" />
+      <entry key="M2" value="44.47200701557348" />
+      <entry key="M5" value="63.67588480758931" />
+      <entry key="M10" value="72.17310365606777" />
+      <entry key="M15" value="75.29126305629991" />
+      <entry key="M30" value="78.5643103652534" />
+      <entry key="H1" value="80.2613251909974" />
+      <entry key="H2" value="81.12539128191561" />
+      <entry key="H4" value="81.56136974945626" />
+      <entry key="D1" value="81.92671011823367" />
+      <entry key="W1" value="81.98952548119227" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.0028042516320963" />
+      <entry key="MS500" value="5.357820980111943" />
+      <entry key="S2" value="7.77678250135075" />
+      <entry key="S5" value="8.477362399800763" />
+      <entry key="S10" value="8.748576413575247" />
+      <entry key="S30" value="13.07120793091576" />
+      <entry key="S60" value="26.26124869944465" />
+      <entry key="M2" value="44.4571642547636" />
+      <entry key="M5" value="63.66683876265595" />
+      <entry key="M10" value="72.16789075427585" />
+      <entry key="M15" value="75.28761885243524" />
+      <entry key="M30" value="78.56239955729716" />
+      <entry key="H1" value="80.26034678273044" />
+      <entry key="H2" value="81.12489622023647" />
+      <entry key="H4" value="81.56112074072912" />
+      <entry key="D1" value="81.92666841036204" />
+      <entry key="W1" value="81.98951951785473" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -45,8 +105,12 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
     "to.speed.mode.migration.done": "true"
@@ -66,7 +130,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1792336090484</updated>
-      <workItem from="1792865606102" duration="80000" />
+      <workItem from="1792865606102" duration="240000" />
+      <workItem from="1793212316085" duration="769000" />
     </task>
     <servers />
   </component>

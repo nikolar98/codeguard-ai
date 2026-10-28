@@ -5,7 +5,8 @@ from app.analyzers.file_analyzer import (
     analyze_code,
     detect_structures,
     detect_long_lines,
-    detect_long_functions
+    detect_long_functions,
+    detect_syntax_errors
 )
 
 project_path = Path(".")
@@ -18,9 +19,8 @@ for file in project_path.rglob("*.py"):
         continue
 
     result = analyze_code(file)
-    structures = detect_structures(file)
     long_lines = detect_long_lines(file)
-    long_functions = detect_long_functions(file)
+    syntax_error = detect_syntax_errors(file)
 
     print("File:", result["file"])
     print("Total lines:", result["total_lines"])
@@ -28,10 +28,28 @@ for file in project_path.rglob("*.py"):
     print("Comment lines:", result["comment_lines"])
     print("Code lines:", result["code_lines"])
 
-    print("Functions:", len(structures["functions"]))
-    print("Classes:", len(structures["classes"]))
-    print("Function names:", structures["functions"])
-    print("Class names:", structures["classes"])
+    if syntax_error is not None:
+        print("Syntax Error detected!")
+        print("Line:", syntax_error["line"])
+        print("Message:", syntax_error["message"])
+
+    else:
+        structures = detect_structures(file)
+        long_functions = detect_long_functions(file)
+
+        print("Functions:", len(structures["functions"]))
+        print("Classes:", len(structures["classes"]))
+        print("Function names:", structures["functions"])
+        print("Class names:", structures["classes"])
+
+        print("Long functions:", len(long_functions))
+
+        for issue in long_functions:
+            print(
+                f"  Warning: Function '{issue['name']}' "
+                f"has {issue['length']} lines "
+                f"(starts at line {issue['start_line']})"
+            )
 
     print("Long lines:", len(long_lines))
 
@@ -39,15 +57,6 @@ for file in project_path.rglob("*.py"):
         print(
             f"  Warning: Line {issue['line']} "
             f"has {issue['length']} characters"
-        )
-
-    print("Long functions:", len(long_functions))
-
-    for issue in long_functions:
-        print(
-            f"  Warning: Function '{issue['name']}' "
-            f"has {issue['length']} lines "
-            f"(starts at line {issue['start_line']})"
         )
 
     print("---------------------------")

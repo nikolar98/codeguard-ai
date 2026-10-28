@@ -86,3 +86,17 @@ def detect_long_functions(file_name, max_lines=30):
                 })
 
     return long_functions
+
+def detect_syntax_errors(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        code = file.read()
+
+    try:
+        ast.parse(code)
+        return None
+
+    except SyntaxError as error:
+        return {
+            "line": error.lineno,
+            "message": error.msg
+        }
