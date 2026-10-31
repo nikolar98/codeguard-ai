@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70087bd7-ddaf-4d63-988e-4b63e61f1e80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test_syntax.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/analyzers/file_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/analyzers/file_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,23 +25,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.0987387892813505" />
-      <entry key="MS500" value="5.453989454472764" />
-      <entry key="S2" value="7.813721558163554" />
-      <entry key="S5" value="8.493534678421305" />
-      <entry key="S10" value="8.756974458284905" />
-      <entry key="S30" value="13.080427310568865" />
-      <entry key="S60" value="26.27630631082642" />
-      <entry key="M2" value="44.47200701557348" />
-      <entry key="M5" value="63.67588480758931" />
-      <entry key="M10" value="72.17310365606777" />
-      <entry key="M15" value="75.29126305629991" />
-      <entry key="M30" value="78.5643103652534" />
-      <entry key="H1" value="80.2613251909974" />
-      <entry key="H2" value="81.12539128191561" />
-      <entry key="H4" value="81.56136974945626" />
-      <entry key="D1" value="81.92671011823367" />
-      <entry key="W1" value="81.98952548119227" />
+      <entry key="MS100" value="1.806900926202626" />
+      <entry key="MS500" value="3.817600315502835" />
+      <entry key="S2" value="5.276533077624274" />
+      <entry key="S5" value="6.503913911864235" />
+      <entry key="S10" value="9.774261206241468" />
+      <entry key="S30" value="22.44763000602253" />
+      <entry key="S60" value="38.40813667030566" />
+      <entry key="M2" value="60.52765319343596" />
+      <entry key="M5" value="86.25075984795308" />
+      <entry key="M10" value="98.39992329241664" />
+      <entry key="M15" value="102.9701580900186" />
+      <entry key="M30" value="107.83030205285756" />
+      <entry key="H1" value="110.3751770657566" />
+      <entry key="H2" value="111.6774303663836" />
+      <entry key="H4" value="112.33615475503085" />
+      <entry key="D1" value="112.88900172381656" />
+      <entry key="W1" value="112.98413432730112" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -65,23 +63,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.0028042516320963" />
-      <entry key="MS500" value="5.357820980111943" />
-      <entry key="S2" value="7.77678250135075" />
-      <entry key="S5" value="8.477362399800763" />
-      <entry key="S10" value="8.748576413575247" />
-      <entry key="S30" value="13.07120793091576" />
-      <entry key="S60" value="26.26124869944465" />
-      <entry key="M2" value="44.4571642547636" />
-      <entry key="M5" value="63.66683876265595" />
-      <entry key="M10" value="72.16789075427585" />
-      <entry key="M15" value="75.28761885243524" />
-      <entry key="M30" value="78.56239955729716" />
-      <entry key="H1" value="80.26034678273044" />
-      <entry key="H2" value="81.12489622023647" />
-      <entry key="H4" value="81.56112074072912" />
-      <entry key="D1" value="81.92666841036204" />
-      <entry key="W1" value="81.98951951785473" />
+      <entry key="MS100" value="1.6617167407390563" />
+      <entry key="MS500" value="3.7327874529020573" />
+      <entry key="S2" value="5.248624563653854" />
+      <entry key="S5" value="6.490939551087594" />
+      <entry key="S10" value="9.765055233661382" />
+      <entry key="S30" value="22.438642187753683" />
+      <entry key="S60" value="38.39549508208608" />
+      <entry key="M2" value="60.51405529778609" />
+      <entry key="M5" value="86.24163128902903" />
+      <entry key="M10" value="98.39446051451256" />
+      <entry key="M15" value="102.96628886415725" />
+      <entry key="M30" value="107.82824601893033" />
+      <entry key="H1" value="110.37411716050747" />
+      <entry key="H2" value="111.67689224246229" />
+      <entry key="H4" value="112.33588362485285" />
+      <entry key="D1" value="112.88895624602274" />
+      <entry key="W1" value="112.98412782335693" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -93,29 +91,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.file_analyzer.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.file_analyzer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_syntax.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -131,7 +130,8 @@
       <option name="presentableId" value="Default" />
       <updated>1792336090484</updated>
       <workItem from="1792865606102" duration="240000" />
-      <workItem from="1793212316085" duration="769000" />
+      <workItem from="1793212316085" duration="893000" />
+      <workItem from="1793483671697" duration="13000" />
     </task>
     <servers />
   </component>
@@ -139,6 +139,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/codeguard_ai$main.coverage" NAME="main Coverage Results" MODIFIED="1792865661753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/codeguard_ai$test_syntax.coverage" NAME="test_syntax Coverage Results" MODIFIED="1793214075751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/codeguard_ai$main.coverage" NAME="main Coverage Results" MODIFIED="1793214089012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

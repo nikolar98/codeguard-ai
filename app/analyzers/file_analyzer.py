@@ -100,3 +100,26 @@ def detect_syntax_errors(file_name):
             "line": error.lineno,
             "message": error.msg
         }
+
+
+def analyze_complexity(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        code = file.read()
+
+    tree = ast.parse(code)
+    results = []
+
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            complexity = 1
+
+            for child in ast.walk(node):
+                if isinstance(child, (ast.If, ast.For, ast.While)):
+                    complexity += 1
+
+            results.append({
+                "function": node.name,
+                "complexity": complexity
+            })
+
+    return results
