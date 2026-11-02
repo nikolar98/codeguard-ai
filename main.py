@@ -6,7 +6,8 @@ from app.analyzers.file_analyzer import (
     detect_structures,
     detect_long_lines,
     detect_long_functions,
-    detect_syntax_errors
+    detect_syntax_errors,
+    analyze_complexity
 )
 
 project_path = Path(".")
@@ -36,6 +37,7 @@ for file in project_path.rglob("*.py"):
     else:
         structures = detect_structures(file)
         long_functions = detect_long_functions(file)
+        complexity_results = analyze_complexity(file)
 
         print("Functions:", len(structures["functions"]))
         print("Classes:", len(structures["classes"]))
@@ -50,6 +52,17 @@ for file in project_path.rglob("*.py"):
                 f"has {issue['length']} lines "
                 f"(starts at line {issue['start_line']})"
             )
+
+        print("Complexity Analysis:")
+
+        for complexity_result in complexity_results:
+            print(
+                f"  Function '{complexity_result['function']}': "
+                f"Complexity {complexity_result['complexity']}"
+            )
+
+            if complexity_result["complexity"] > 5:
+                print("    Warning: High function complexity!")
 
     print("Long lines:", len(long_lines))
 
