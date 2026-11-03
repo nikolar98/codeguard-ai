@@ -10,18 +10,29 @@ from app.analyzers.file_analyzer import (
     analyze_complexity
 )
 
+from app.report_generator import generate_json_report
+
 project_path = Path(".")
 
 total_files = 0
 total_lines = 0
+report_data = []
 
 for file in project_path.rglob("*.py"):
     if ".venv" in file.parts:
         continue
 
     result = analyze_code(file)
+    result["file"] = str(result["file"])
     long_lines = detect_long_lines(file)
     syntax_error = detect_syntax_errors(file)
+
+    file_report = {
+        "file": str(file),
+        "statistics": result,
+        "syntax_error": syntax_error,
+        "long_lines": long_lines
+    }
 
     print("File:", result["file"])
     print("Total lines:", result["total_lines"])
@@ -38,6 +49,10 @@ for file in project_path.rglob("*.py"):
         structures = detect_structures(file)
         long_functions = detect_long_functions(file)
         complexity_results = analyze_complexity(file)
+
+        file_report["structures"] = structures
+        file_report["long_functions"] = long_functions
+        file_report["complexity"] = complexity_results
 
         print("Functions:", len(structures["functions"]))
         print("Classes:", len(structures["classes"]))
@@ -77,5 +92,13 @@ for file in project_path.rglob("*.py"):
     total_files += 1
     total_lines += result["total_lines"]
 
+    report_data.append(file_report)
+
 print("Total Python files:", total_files)
 print("Total project lines:", total_lines)
+
+generate_json_report({
+    "total_files": total_files,
+    "total_lines": total_lines,
+    "files": report_data
+})

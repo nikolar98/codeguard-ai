@@ -1,0 +1,135 @@
+{
+    "total_files": 5,
+    "total_lines": 237,
+    "files": [
+        {
+            "file": "main.py",
+            "statistics": {
+                "file": "main.py",
+                "total_lines": 104,
+                "empty_lines": 25,
+                "comment_lines": 0,
+                "code_lines": 79
+            },
+            "syntax_error": null,
+            "long_lines": [],
+            "structures": {
+                "functions": [],
+                "classes": []
+            },
+            "long_functions": [],
+            "complexity": []
+        },
+        {
+            "file": "app\\report_generator.py",
+            "statistics": {
+                "file": "app\\report_generator.py",
+                "total_lines": 8,
+                "empty_lines": 3,
+                "comment_lines": 0,
+                "code_lines": 5
+            },
+            "syntax_error": null,
+            "long_lines": [],
+            "structures": {
+                "functions": [
+                    "generate_json_report"
+                ],
+                "classes": []
+            },
+            "long_functions": [],
+            "complexity": [
+                {
+                    "function": "generate_json_report",
+                    "complexity": 1
+                }
+            ]
+        },
+        {
+            "file": "app\\__init__.py",
+            "statistics": {
+                "file": "app\\__init__.py",
+                "total_lines": 0,
+                "empty_lines": 0,
+                "comment_lines": 0,
+                "code_lines": 0
+            },
+            "syntax_error": null,
+            "long_lines": [],
+            "structures": {
+                "functions": [],
+                "classes": []
+            },
+            "long_functions": [],
+            "complexity": []
+        },
+        {
+            "file": "app\\analyzers\\file_analyzer.py",
+            "statistics": {
+                "file": "app\\analyzers\\file_analyzer.py",
+                "total_lines": 125,
+                "empty_lines": 35,
+                "comment_lines": 0,
+                "code_lines": 90
+            },
+            "syntax_error": null,
+            "long_lines": [],
+            "structures": {
+                "functions": [
+                    "analyze_code",
+                    "detect_structures",
+                    "detect_long_lines",
+                    "detect_long_functions",
+                    "detect_syntax_errors",
+                    "analyze_complexity"
+                ],
+                "classes": []
+            },
+            "long_functions": [],
+            "complexity": [
+                {
+                    "function": "analyze_code",
+                    "complexity": 4
+                },
+                {
+                    "function": "detect_structures",
+                    "complexity": 4
+                },
+                {
+                    "function": "detect_long_lines",
+                    "complexity": 3
+                },
+                {
+                    "function": "detect_long_functions",
+                    "complexity": 4
+                },
+                {
+                    "function": "detect_syntax_errors",
+                    "complexity": 1
+                },
+                {
+                    "function": "analyze_complexity",
+                    "complexity": 5
+                }
+            ]
+        },
+        {
+            "file": "app\\analyzers\\__init__.py",
+            "statistics": {
+                "file": "app\\analyzers\\__init__.py",
+                "total_lines": 0,
+                "empty_lines": 0,
+                "comment_lines": 0,
+                "code_lines": 0
+            },
+            "syntax_error": null,
+            "long_lines": [],
+            "structures": {
+                "functions": [],
+                "classes": []
+            },
+            "long_functions": [],
+            "complexity": []
+        }
+    ]
+}
