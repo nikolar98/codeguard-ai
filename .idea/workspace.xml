@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70087bd7-ddaf-4d63-988e-4b63e61f1e80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/report_generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_file_analyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,23 +26,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6406841003440813" />
-      <entry key="MS500" value="3.833151507040699" />
-      <entry key="S2" value="7.154017899312505" />
-      <entry key="S5" value="12.881475039609212" />
-      <entry key="S10" value="19.420444900161577" />
-      <entry key="S30" value="35.764778617431844" />
-      <entry key="S60" value="53.302143997701684" />
-      <entry key="M2" value="76.92416849094599" />
-      <entry key="M5" value="104.6835693669138" />
-      <entry key="M10" value="117.94388054203137" />
-      <entry key="M15" value="122.95610588841427" />
-      <entry key="M30" value="128.30019065164134" />
-      <entry key="H1" value="131.10407103860064" />
-      <entry key="H2" value="132.5403284990105" />
-      <entry key="H4" value="133.26721198370979" />
-      <entry key="D1" value="133.877456443289" />
-      <entry key="W1" value="133.98248365381173" />
+      <entry key="MS100" value="1.6267373003710968" />
+      <entry key="MS500" value="3.7054785482201633" />
+      <entry key="S2" value="6.199974083280623" />
+      <entry key="S5" value="12.108933917809226" />
+      <entry key="S10" value="20.455137448106015" />
+      <entry key="S30" value="40.27986069732584" />
+      <entry key="S60" value="59.47210433363724" />
+      <entry key="M2" value="84.46020853332371" />
+      <entry key="M5" value="113.80526705033914" />
+      <entry key="M10" value="127.88678710395287" />
+      <entry key="M15" value="133.2216227204811" />
+      <entry key="M30" value="138.91707667708667" />
+      <entry key="H1" value="141.90834805687348" />
+      <entry key="H2" value="143.44139973527325" />
+      <entry key="H4" value="144.2174774947914" />
+      <entry key="D1" value="144.8691295646178" />
+      <entry key="W1" value="144.98129317036756" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -64,23 +64,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.516123280420744" />
-      <entry key="MS500" value="3.7291517207669265" />
-      <entry key="S2" value="7.097942120781972" />
-      <entry key="S5" value="12.83667353486816" />
-      <entry key="S10" value="19.386835536492377" />
-      <entry key="S30" value="35.74508061547552" />
-      <entry key="S60" value="53.284203009910726" />
-      <entry key="M2" value="76.90788097132382" />
-      <entry key="M5" value="104.67321988297354" />
-      <entry key="M10" value="117.93775311630422" />
-      <entry key="M15" value="122.95177806420328" />
-      <entry key="M30" value="128.29789654141285" />
-      <entry key="H1" value="131.10288969102064" />
-      <entry key="H2" value="132.53972902502912" />
-      <entry key="H4" value="133.26691001769154" />
-      <entry key="D1" value="133.87740580354435" />
-      <entry key="W1" value="133.98247641188735" />
+      <entry key="MS100" value="1.5274934718682565" />
+      <entry key="MS500" value="3.626646800867526" />
+      <entry key="S2" value="6.162293528855855" />
+      <entry key="S5" value="12.071538057281504" />
+      <entry key="S10" value="20.421229432698034" />
+      <entry key="S30" value="40.25762871109949" />
+      <entry key="S60" value="59.45266197093592" />
+      <entry key="M2" value="84.44307498247377" />
+      <entry key="M5" value="113.79447084761371" />
+      <entry key="M10" value="127.8803986893036" />
+      <entry key="M15" value="133.21711024387676" />
+      <entry key="M30" value="138.91468422316723" />
+      <entry key="H1" value="141.90711589203065" />
+      <entry key="H2" value="143.44077442254198" />
+      <entry key="H4" value="144.2171624994491" />
+      <entry key="D1" value="144.86907673783966" />
+      <entry key="W1" value="144.98128561562802" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -134,7 +134,8 @@
       <workItem from="1793212316085" duration="893000" />
       <workItem from="1793483671697" duration="146000" />
       <workItem from="1793644462418" duration="2471000" />
-      <workItem from="1793743494992" duration="660000" />
+      <workItem from="1793743494992" duration="770000" />
+      <workItem from="1793814511041" duration="242000" />
     </task>
     <servers />
   </component>
@@ -143,6 +144,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/codeguard_ai$test_syntax.coverage" NAME="test_syntax Coverage Results" MODIFIED="1793214075751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/codeguard_ai$main.coverage" NAME="main Coverage Results" MODIFIED="1793744120593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/codeguard_ai$main.coverage" NAME="main Coverage Results" MODIFIED="1793744162983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
