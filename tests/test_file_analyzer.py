@@ -110,3 +110,22 @@ def test_detect_long_functions(tmp_path):
     assert result[0]["name"] == "calculate"
     assert result[0]["start_line"] == 1
     assert result[0]["length"] == 4
+
+
+
+def test_complexity_with_boolean_operators(tmp_path):
+    test_file = tmp_path / "example.py"
+
+    test_file.write_text(
+        "def check_user(age, active):\n"
+        "    if age >= 18 and active:\n"
+        "        return True\n"
+        "    return False\n",
+        encoding="utf-8"
+    )
+
+    result = analyze_complexity(test_file)
+
+    assert len(result) == 1
+    assert result[0]["function"] == "check_user"
+    assert result[0]["complexity"] == 3

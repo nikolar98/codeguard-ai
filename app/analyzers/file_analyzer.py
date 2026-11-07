@@ -1,3 +1,4 @@
+
 import ast
 
 
@@ -27,7 +28,6 @@ def analyze_code(file_name):
     }
 
 
-
 def detect_structures(file_name):
     with open(file_name, "r", encoding="utf-8") as file:
         code = file.read()
@@ -48,7 +48,6 @@ def detect_structures(file_name):
         "functions": functions,
         "classes": classes
     }
-
 
 
 def detect_long_lines(file_name, max_length=79):
@@ -87,6 +86,7 @@ def detect_long_functions(file_name, max_lines=30):
 
     return long_functions
 
+
 def detect_syntax_errors(file_name):
     with open(file_name, "r", encoding="utf-8") as file:
         code = file.read()
@@ -109,13 +109,25 @@ def analyze_complexity(file_name):
     tree = ast.parse(code)
     results = []
 
+    decision_nodes = (
+        ast.If,
+        ast.For,
+        ast.AsyncFor,
+        ast.While,
+        ast.IfExp,
+        ast.ExceptHandler
+    )
+
     for node in ast.walk(tree):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
             complexity = 1
 
             for child in ast.walk(node):
-                if isinstance(child, (ast.If, ast.For, ast.While)):
+                if isinstance(child, decision_nodes):
                     complexity += 1
+
+                elif isinstance(child, ast.BoolOp):
+                    complexity += len(child.values) - 1
 
             results.append({
                 "function": node.name,
