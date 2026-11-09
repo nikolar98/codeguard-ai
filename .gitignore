@@ -10,3 +10,6 @@ __pycache__/
 
 # Generated reports
 report.json
+
+# PyCharm settings
+.idea/

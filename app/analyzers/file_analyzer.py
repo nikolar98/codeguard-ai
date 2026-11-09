@@ -135,3 +135,32 @@ def analyze_complexity(file_name):
             })
 
     return results
+
+
+
+def detect_duplicate_code(file_name, min_lines=3):
+    with open(file_name, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    duplicates = []
+    seen_blocks = {}
+
+    for i in range(len(lines) - min_lines + 1):
+        block = tuple(
+            line.strip()
+            for line in lines[i:i + min_lines]
+        )
+
+        if any(not line or line.startswith("#") for line in block):
+            continue
+
+        if block in seen_blocks:
+            duplicates.append({
+                "first_occurrence": seen_blocks[block],
+                "duplicate_occurrence": i + 1,
+                "lines": min_lines
+            })
+        else:
+            seen_blocks[block] = i + 1
+
+    return duplicates

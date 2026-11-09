@@ -7,7 +7,8 @@ from app.analyzers.file_analyzer import (
     detect_long_lines,
     detect_long_functions,
     detect_syntax_errors,
-    analyze_complexity
+    analyze_complexity,
+    detect_duplicate_code
 )
 
 from app.report_generator import generate_json_report
@@ -24,14 +25,17 @@ for file in project_path.rglob("*.py"):
 
     result = analyze_code(file)
     result["file"] = str(result["file"])
+
     long_lines = detect_long_lines(file)
     syntax_error = detect_syntax_errors(file)
+    duplicates = detect_duplicate_code(file)
 
     file_report = {
         "file": str(file),
         "statistics": result,
         "syntax_error": syntax_error,
-        "long_lines": long_lines
+        "long_lines": long_lines,
+        "duplicates": duplicates
     }
 
     print("File:", result["file"])
@@ -85,6 +89,16 @@ for file in project_path.rglob("*.py"):
         print(
             f"  Warning: Line {issue['line']} "
             f"has {issue['length']} characters"
+        )
+
+    print("Duplicate code blocks:", len(duplicates))
+
+    for duplicate in duplicates:
+        print(
+            f"  Warning: Lines "
+            f"{duplicate['first_occurrence']} and "
+            f"{duplicate['duplicate_occurrence']} "
+            f"contain {duplicate['lines']} repeated lines"
         )
 
     print("---------------------------")

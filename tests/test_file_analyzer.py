@@ -4,7 +4,8 @@ from app.analyzers.file_analyzer import (
     detect_long_lines,
     analyze_complexity,
     detect_structures,
-    detect_long_functions
+    detect_long_functions,
+    detect_duplicate_code
 )
 
 
@@ -129,3 +130,27 @@ def test_complexity_with_boolean_operators(tmp_path):
     assert len(result) == 1
     assert result[0]["function"] == "check_user"
     assert result[0]["complexity"] == 3
+
+
+
+def test_detect_duplicate_code(tmp_path):
+    test_file = tmp_path / "example.py"
+
+    test_file.write_text(
+        "x = 10\n"
+        "y = 20\n"
+        "z = x + y\n"
+        "print(z)\n"
+        "x = 10\n"
+        "y = 20\n"
+        "z = x + y\n"
+        "print(z)\n",
+        encoding="utf-8"
+    )
+
+    result = detect_duplicate_code(test_file, min_lines=3)
+
+    assert len(result) == 2
+    assert result[0]["first_occurrence"] == 1
+    assert result[0]["duplicate_occurrence"] == 5
+    assert result[0]["lines"] == 3
