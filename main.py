@@ -1,6 +1,11 @@
 
 from pathlib import Path
 
+from app.analyzers.bug_detector import (
+    detect_bare_except,
+    detect_mutable_defaults
+)
+
 from app.analyzers.file_analyzer import (
     analyze_code,
     detect_structures,
@@ -35,7 +40,8 @@ for file in project_path.rglob("*.py"):
         "statistics": result,
         "syntax_error": syntax_error,
         "long_lines": long_lines,
-        "duplicates": duplicates
+        "duplicates": duplicates,
+        "potential_bugs": []
     }
 
     print("File:", result["file"])
@@ -53,10 +59,13 @@ for file in project_path.rglob("*.py"):
         structures = detect_structures(file)
         long_functions = detect_long_functions(file)
         complexity_results = analyze_complexity(file)
+        bugs = detect_bare_except(file)
+        bugs += detect_mutable_defaults(file)
 
         file_report["structures"] = structures
         file_report["long_functions"] = long_functions
         file_report["complexity"] = complexity_results
+        file_report["potential_bugs"] = bugs
 
         print("Functions:", len(structures["functions"]))
         print("Classes:", len(structures["classes"]))
@@ -82,6 +91,14 @@ for file in project_path.rglob("*.py"):
 
             if complexity_result["complexity"] > 5:
                 print("    Warning: High function complexity!")
+
+        print("Potential bugs:", len(bugs))
+
+        for bug in bugs:
+            print(
+                f"  Warning: Line {bug['line']} - "
+                f"{bug['message']}"
+            )
 
     print("Long lines:", len(long_lines))
 
