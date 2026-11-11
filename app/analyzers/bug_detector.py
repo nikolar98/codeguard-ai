@@ -44,3 +44,31 @@ def detect_mutable_defaults(file_name):
                     })
 
     return bugs
+
+
+
+def detect_none_comparison(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        code = file.read()
+
+    tree = ast.parse(code)
+    bugs = []
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Compare):
+            for operator, comparator in zip(
+                node.ops, node.comparators
+            ):
+                if isinstance(comparator, ast.Constant):
+                    if comparator.value is None:
+                        if isinstance(operator, (ast.Eq, ast.NotEq)):
+                            bugs.append({
+                                "line": node.lineno,
+                                "type": "none_comparison",
+                                "message": (
+                                    "Use 'is None' or 'is not None' "
+                                    "instead of == or !=."
+                                )
+                            })
+
+    return bugs

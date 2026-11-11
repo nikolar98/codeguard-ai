@@ -3,7 +3,8 @@ from pathlib import Path
 
 from app.analyzers.bug_detector import (
     detect_bare_except,
-    detect_mutable_defaults
+    detect_mutable_defaults,
+    detect_none_comparison
 )
 
 from app.analyzers.file_analyzer import (
@@ -61,6 +62,9 @@ for file in project_path.rglob("*.py"):
         complexity_results = analyze_complexity(file)
         bugs = detect_bare_except(file)
         bugs += detect_mutable_defaults(file)
+        bugs += detect_none_comparison(file)
+
+        bugs.sort(key=lambda bug: bug["line"])
 
         file_report["structures"] = structures
         file_report["long_functions"] = long_functions

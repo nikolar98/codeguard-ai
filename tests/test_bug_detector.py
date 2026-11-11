@@ -1,7 +1,8 @@
 
 from app.analyzers.bug_detector import (
     detect_bare_except,
-    detect_mutable_defaults
+    detect_mutable_defaults,
+    detect_none_comparison
 )
 
 
@@ -69,5 +70,38 @@ def test_no_mutable_defaults(tmp_path):
     )
 
     bugs = detect_mutable_defaults(test_file)
+
+    assert bugs == []
+
+
+
+def test_detect_none_comparison(tmp_path):
+    test_file = tmp_path / "example.py"
+
+    test_file.write_text(
+        "x = None\n"
+        "if x == None:\n"
+        "    print('Missing')\n",
+        encoding="utf-8"
+    )
+
+    bugs = detect_none_comparison(test_file)
+
+    assert len(bugs) == 1
+    assert bugs[0]["line"] == 2
+    assert bugs[0]["type"] == "none_comparison"
+
+
+def test_no_none_comparison(tmp_path):
+    test_file = tmp_path / "example.py"
+
+    test_file.write_text(
+        "x = None\n"
+        "if x is None:\n"
+        "    print('Missing')\n",
+        encoding="utf-8"
+    )
+
+    bugs = detect_none_comparison(test_file)
 
     assert bugs == []
