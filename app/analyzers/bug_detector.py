@@ -15,6 +15,7 @@ def detect_bare_except(file_name):
                 bugs.append({
                     "line": node.lineno,
                     "type": "bare_except",
+                    "severity": "MEDIUM",
                     "message": "Avoid using bare except clauses."
                 })
 
@@ -40,6 +41,7 @@ def detect_mutable_defaults(file_name):
                     bugs.append({
                         "line": default.lineno,
                         "type": "mutable_default",
+                        "severity": "HIGH",
                         "message": "Avoid using mutable default arguments."
                     })
 
@@ -65,6 +67,7 @@ def detect_none_comparison(file_name):
                             bugs.append({
                                 "line": node.lineno,
                                 "type": "none_comparison",
+                                "severity": "LOW",
                                 "message": (
                                     "Use 'is None' or 'is not None' "
                                     "instead of == or !=."

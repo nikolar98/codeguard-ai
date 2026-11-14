@@ -22,6 +22,7 @@ def test_detect_bare_except(tmp_path):
     assert len(bugs) == 1
     assert bugs[0]["line"] == 3
     assert bugs[0]["type"] == "bare_except"
+    assert bugs[0]["severity"] == "MEDIUM"
 
 
 def test_no_bare_except(tmp_path):
@@ -55,6 +56,7 @@ def test_detect_mutable_defaults(tmp_path):
     assert len(bugs) == 1
     assert bugs[0]["line"] == 1
     assert bugs[0]["type"] == "mutable_default"
+    assert bugs[0]["severity"] == "HIGH"
 
 
 def test_no_mutable_defaults(tmp_path):
@@ -74,7 +76,6 @@ def test_no_mutable_defaults(tmp_path):
     assert bugs == []
 
 
-
 def test_detect_none_comparison(tmp_path):
     test_file = tmp_path / "example.py"
 
@@ -90,6 +91,7 @@ def test_detect_none_comparison(tmp_path):
     assert len(bugs) == 1
     assert bugs[0]["line"] == 2
     assert bugs[0]["type"] == "none_comparison"
+    assert bugs[0]["severity"] == "LOW"
 
 
 def test_no_none_comparison(tmp_path):

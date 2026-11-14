@@ -100,7 +100,8 @@ for file in project_path.rglob("*.py"):
 
         for bug in bugs:
             print(
-                f"  Warning: Line {bug['line']} - "
+                f"  [{bug['severity']}] "
+                f"Line {bug['line']}: "
                 f"{bug['message']}"
             )
 
