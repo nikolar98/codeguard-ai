@@ -23,6 +23,7 @@ project_path = Path(".")
 
 total_files = 0
 total_lines = 0
+total_bugs = 0
 report_data = []
 
 for file in project_path.rglob("*.py"):
@@ -70,6 +71,7 @@ for file in project_path.rglob("*.py"):
         file_report["long_functions"] = long_functions
         file_report["complexity"] = complexity_results
         file_report["potential_bugs"] = bugs
+        total_bugs += len(bugs)
 
         print("Functions:", len(structures["functions"]))
         print("Classes:", len(structures["classes"]))
@@ -132,9 +134,11 @@ for file in project_path.rglob("*.py"):
 
 print("Total Python files:", total_files)
 print("Total project lines:", total_lines)
+print("Total potential bugs:", total_bugs)
 
 generate_json_report({
     "total_files": total_files,
     "total_lines": total_lines,
+    "total_bugs": total_bugs,
     "files": report_data
 })
