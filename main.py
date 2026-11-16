@@ -17,6 +17,7 @@ from app.analyzers.file_analyzer import (
     detect_duplicate_code
 )
 
+from app.analyzers.quality_scorer import calculate_quality_score
 from app.report_generator import generate_json_report
 
 project_path = Path(".")
@@ -24,6 +25,8 @@ project_path = Path(".")
 total_files = 0
 total_lines = 0
 total_bugs = 0
+total_quality_score = 0
+scored_files = 0
 report_data = []
 
 for file in project_path.rglob("*.py"):
@@ -43,7 +46,8 @@ for file in project_path.rglob("*.py"):
         "syntax_error": syntax_error,
         "long_lines": long_lines,
         "duplicates": duplicates,
-        "potential_bugs": []
+        "potential_bugs": [],
+        "quality_score": None
     }
 
     print("File:", result["file"])
@@ -56,22 +60,36 @@ for file in project_path.rglob("*.py"):
         print("Syntax Error detected!")
         print("Line:", syntax_error["line"])
         print("Message:", syntax_error["message"])
+        print("Code Quality Score: N/A (Syntax Error)")
 
     else:
         structures = detect_structures(file)
         long_functions = detect_long_functions(file)
         complexity_results = analyze_complexity(file)
+
         bugs = detect_bare_except(file)
         bugs += detect_mutable_defaults(file)
         bugs += detect_none_comparison(file)
 
         bugs.sort(key=lambda bug: bug["line"])
 
+        quality = calculate_quality_score(
+            bugs,
+            long_lines,
+            long_functions,
+            complexity_results,
+            duplicates
+        )
+
         file_report["structures"] = structures
         file_report["long_functions"] = long_functions
         file_report["complexity"] = complexity_results
         file_report["potential_bugs"] = bugs
+        file_report["quality_score"] = quality
+
         total_bugs += len(bugs)
+        total_quality_score += quality["score"]
+        scored_files += 1
 
         print("Functions:", len(structures["functions"]))
         print("Classes:", len(structures["classes"]))
@@ -107,6 +125,12 @@ for file in project_path.rglob("*.py"):
                 f"{bug['message']}"
             )
 
+        print(
+            f"Code Quality Score: "
+            f"{quality['score']}/100 "
+            f"({quality['rating']})"
+        )
+
     print("Long lines:", len(long_lines))
 
     for issue in long_lines:
@@ -132,13 +156,28 @@ for file in project_path.rglob("*.py"):
 
     report_data.append(file_report)
 
+average_quality_score = (
+    round(total_quality_score / scored_files, 2)
+    if scored_files > 0
+    else None
+)
+
 print("Total Python files:", total_files)
 print("Total project lines:", total_lines)
 print("Total potential bugs:", total_bugs)
+
+if average_quality_score is not None:
+    print(
+        f"Average Code Quality Score: "
+        f"{average_quality_score}/100"
+    )
+else:
+    print("Average Code Quality Score: N/A")
 
 generate_json_report({
     "total_files": total_files,
     "total_lines": total_lines,
     "total_bugs": total_bugs,
+    "average_quality_score": average_quality_score,
     "files": report_data
 })
